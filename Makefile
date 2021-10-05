@@ -6,6 +6,6 @@ compile:
 run:
 	./platformer
 push:
-	git add ./header/*.h ./source/*.cpp ./scripts/header/*.h ./scripts/source/*.cpp ./README.md Makefile
+	git add ./header/*.h ./header/SDL/*.h ./source/*.cpp ./scripts/header/*.h ./scripts/source/*.cpp ./fonts/* ./README.md Makefile
 	git commit -a -m "First commit"
 	git push origin main
