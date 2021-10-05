@@ -10,6 +10,7 @@
 #include "font.h"
 #include "console.h"
 #include "render.h"
+#include "titlebar.h"
 
 long prevTime = 0;
 
@@ -79,6 +80,7 @@ float fpsRead = 0;
 void Engine::update()
 {
     Script::update();
+    Titlebar::update();
     Console::update();
 
     if (Global::fpsOutput)

@@ -1,5 +1,7 @@
 #include <math.h>
 #include <iostream>
+#include "SDL/SDL.h"
+#include "SDL/SDL_ttf.h"
 
 #include "global.h"
 #include "script.h"
@@ -11,6 +13,7 @@
 #include "font.h"
 #include "game.h"
 #include "map.h"
+#include "menu.h"
 
 void Script::exit()
 {
@@ -24,6 +27,8 @@ void Script::keyDown(SDL_Keysym keysym) { }
 void Script::start()
 {
     Map::load("");
+
+    Game::start();
 }
 void Script::update()
 {

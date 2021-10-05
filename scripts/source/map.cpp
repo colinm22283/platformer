@@ -7,5 +7,5 @@ int Map::height = 0;
 
 bool Map::load(std::string path)
 {
-    
+    return true;
 }
