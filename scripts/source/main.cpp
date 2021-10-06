@@ -12,8 +12,9 @@
 #include "consoleParser.h"
 #include "font.h"
 #include "game.h"
-#include "map.h"
+#include "mapCreator.h"
 #include "menu.h"
+#include "titlebar.h"
 
 void Script::exit()
 {
@@ -26,13 +27,15 @@ void Script::keyDown(SDL_Keysym keysym) { }
 
 void Script::start()
 {
-    Map::load("");
+    MapCreator::start();
 
     Game::start();
 }
 void Script::update()
 {
     Render::clearScreen({ 255, 255, 255, 255 });
+
+    MapCreator::update();
 
     Game::update();
 }

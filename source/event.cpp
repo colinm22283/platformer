@@ -8,6 +8,7 @@
 #include "engine.h"
 #include "input.h"
 #include "global.h"
+#include "titlebar.h"
 
 SDL_Event Event::event;
 
@@ -56,6 +57,7 @@ void Event::update()
         case SDL_MOUSEBUTTONUP:
         {
             Script::mouseClick(event.button.button);
+            Titlebar::mouseClick(event.button.button);
 
             switch (event.button.button)
             {
