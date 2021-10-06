@@ -8,15 +8,10 @@
 #include "mapCreator.h"
 
 bool Game::debugMode = false;
+bool Game::mapEditor = false;
 
 void Game::start()
-{
-    MapCreator::enabled = true;
-}
+{ }
 
 void Game::update()
-{
-    
-
-    MapCreator::update();
-}
+{ }

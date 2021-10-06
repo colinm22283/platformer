@@ -27,6 +27,6 @@ namespace Titlebar
     void mouseClick(int button);
     Titlebar::Dropdown addDropdown(std::string title);
     Titlebar::Button addButton(Titlebar::Dropdown dd, std::string text, u_int16_t callId);
-
     int pollEvent();
+    void reset();
 }

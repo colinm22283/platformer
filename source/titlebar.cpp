@@ -113,3 +113,8 @@ int Titlebar::pollEvent()
         return proto;
     }
 }
+
+void Titlebar::reset()
+{
+    Titlebar::dropdowns.clear();
+}

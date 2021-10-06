@@ -14,10 +14,11 @@
 #include "game.h"
 #include "mapCreator.h"
 #include "menu.h"
-#include "titlebar.h"
 
 void Script::exit()
 {
+    MapCreator::stop();
+
     Console::print("Exit");
 
     Engine::quit = true;
@@ -27,7 +28,7 @@ void Script::keyDown(SDL_Keysym keysym) { }
 
 void Script::start()
 {
-    MapCreator::start();
+    if (Game::mapEditor) MapCreator::start();
 
     Game::start();
 }
@@ -35,9 +36,11 @@ void Script::update()
 {
     Render::clearScreen({ 255, 255, 255, 255 });
 
-    MapCreator::update();
-
-    Game::update();
+    if (Game::mapEditor) MapCreator::update();
+    else
+    {
+        Game::update();
+    }
 }
 
 void Script::mouseDown(int button)
@@ -52,6 +55,12 @@ void Script::mouseClick(int button)
 bool Script::consoleSet(std::string variable, std::string value)
 {
     if (variable == "debugmode") Game::debugMode = value == "true" ? true : false;
+    else if (variable == "mapeditor")
+    {
+        Game::mapEditor = value == "true" ? true : false;
+        if (Game::mapEditor) MapCreator::start();
+        else MapCreator::stop();
+    }
     else return false;
 
     return true;
